@@ -25,6 +25,7 @@ import { ChevronRight, CirclePlus, Plus } from "lucide-react"
 import { SIDEBAR_LINKS } from "@/constants"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "./ui/collapsible"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
+import TaskFormDialog from "./TaskFormDialog"
 
 const AppSidebar = () => {
     return (
@@ -42,9 +43,11 @@ const AppSidebar = () => {
                     <SidebarGroupContent>
                         <SidebarMenu>
                             <SidebarMenuItem>
-                                <SidebarMenuButton className="!text-primary">
-                                    <CirclePlus /> Add a New Task
-                                </SidebarMenuButton>
+                                <TaskFormDialog>
+                                    <SidebarMenuButton className="!text-primary">
+                                        <CirclePlus /> Add a New Task
+                                    </SidebarMenuButton>
+                                </TaskFormDialog>
                             </SidebarMenuItem>
 
                             {SIDEBAR_LINKS.map((item, index) => (
@@ -66,7 +69,7 @@ const AppSidebar = () => {
 
                 <Collapsible defaultOpen className="group/collapsible">
                     <SidebarGroup>
-                        <SidebarGroupLabel 
+                        <SidebarGroupLabel
                             asChild
                             className="text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                         >
@@ -85,7 +88,6 @@ const AppSidebar = () => {
 
                             <TooltipContent side="right">Add a new Project</TooltipContent>
                         </Tooltip>
-
 
                         <CollapsibleContent>
                             <SidebarGroupContent>
